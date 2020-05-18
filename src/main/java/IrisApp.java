@@ -96,9 +96,6 @@ public class IrisApp {
         recordReaderTest.initialize(new FileSplit(fileTest));
         DataSetIterator dataSetIteratorTest= new RecordReaderDataSetIterator(recordReaderTest,batchSize,labelIndex,numOutputs);
         Evaluation evaluation=new Evaluation();
-        DataNormalization scalerTest = new ImagePreProcessingScaler();
-        scalerTest.fitLabel(true);
-        dataSetIteratorTest.setPreProcessor(scalerTest);
         while(dataSetIteratorTest.hasNext()){
             DataSet dataSetTest = dataSetIteratorTest.next();
             INDArray features = dataSetTest.getFeatures();
